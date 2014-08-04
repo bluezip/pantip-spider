@@ -38,11 +38,11 @@ module.exports = {
             },
             // Get comment
             function (callback) {
-              comments = [];
+              comment = [];
               $('div.display-post-status-leftside div.display-post-story-wrapper.comment-wrapper div.display-post-story').filter(function (index, elem) {
-                comments.push($(this).html());
+                comment.push($(this).text());
                 if (index === $('div.display-post-status-leftside div.display-post-story-wrapper.comment-wrapper div.display-post-story').length - 1) {
-                  data.comments = comments;
+                  data.comment = comment;
                   callback(null, data);
                 }
               });
@@ -51,6 +51,8 @@ module.exports = {
           , function (err, resule) {
             cb(null,data);
           });
+      }else{
+        cb(true,err);
       }
     });
   }
