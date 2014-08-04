@@ -13,8 +13,8 @@ module.exports = {
         async.series([
             // Get title
             function (callback) {
-              $('h2.display-post-title').filter(function () {
-                data.title = $(this).text()
+              $('h2.display-post-title').first().filter(function () {
+                data.title = $(this).text();
                 callback(null, data);
               });
             },
@@ -42,14 +42,14 @@ module.exports = {
               $('div.display-post-status-leftside div.display-post-story-wrapper.comment-wrapper div.display-post-story').filter(function (index, elem) {
                 comments.push($(this).html());
                 if (index === $('div.display-post-status-leftside div.display-post-story-wrapper.comment-wrapper div.display-post-story').length - 1) {
-                  data.comment = comments;
+                  data.comments = comments;
                   callback(null, data);
                 }
               });
             }
           ]
           , function (err, resule) {
-            cb(data);
+            cb(null,data);
           });
       }
     });
