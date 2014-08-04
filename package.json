@@ -1,0 +1,13 @@
+{
+  "name": "pantip-spyder",
+  "version": "0.0.1",
+  "description": "Pantip",
+  "main": "index.js",
+  "author": "bluezip",
+  "dependencies": {
+    "async": "^0.9.0",
+    "cheerio": "latest",
+    "lodash": "^2.4.1",
+    "phantom-html-snapshot": "0.0.4"
+  }
+}
