@@ -2,12 +2,16 @@
   "name": "pantip-spider",
   "version": "0.0.2",
   "description": "Pantip",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": "bluezip",
   "dependencies": {
     "async": "^0.9.0",
     "cheerio": "latest",
     "lodash": "^2.4.1",
-    "phantom-html-snapshot": "0.0.4"
+    "phantom-html-snapshot": "0.0.4",
+    "should": "^4.0.4"
+  },
+  "scripts": {
+    "test": "mocha test/index.js"
   }
 }
