@@ -68,7 +68,7 @@ module.exports = {
         $('div#index-main.col-main-inner div#show_topic_lists.post-list-wrapper div.post-item div.post-item-title a').filter(function(index,elem){
           data.push({
             name: $(this).text().trim(),
-            url: $(this).attr('href')
+            link: $(this).attr('href')
           });
           if(index === $('div#index-main.col-main-inner div#show_topic_lists.post-list-wrapper div.post-item div.post-item-title a').length - 1){
             done(null,data);
