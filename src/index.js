@@ -4,6 +4,7 @@ var async         = require('async');
 
 module.exports = {
 
+  // Get data
   page : function(url,done){
 
     HtmlSnapshot.snapshot(url, function (err, html) {
@@ -57,6 +58,8 @@ module.exports = {
     }); // HtmlSnapshot
   },
 
+
+  // Get many url
   forum: function(url,done){
     HtmlSnapshot.snapshot(url, function (err, html) {
       if (!err) {
