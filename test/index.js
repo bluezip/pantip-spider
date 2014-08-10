@@ -3,7 +3,7 @@ var should    = require('should');
 
 
 describe('Pantip', function(){
-  this.timeout(120 * 1000);
+  this.timeout(150 * 1000);
   var link  = '';
 
   it(':forum', function(done){
@@ -17,12 +17,15 @@ describe('Pantip', function(){
 
 
   it(':page', function(done){
-    pantip.page('http://pantip.com'+link,function(err,data){
-      data.title.should.be.type('string');
-      data.description.should.be.type('string');
-      data.keyword.should.be.an.Array;
-      data.comment.should.be.an.Array;
-      if(err){ done(err); }else{ done(); }
+    pantip.page(link,function(err,data){
+      if(err){
+        done(err);
+      }else{
+        data.title.should.be.type('string');
+        data.description.should.be.type('string');
+        data.keyword.should.be.an.Array;
+         done();
+      }
     });
   });
 });
