@@ -31,6 +31,7 @@ module.exports = {
                 callback(null, data);
               });
             },
+            // Get avatar
             function(callback){
               $('div.display-post-story-footer div.display-post-action div.display-post-avatar a img').first().filter(function(){
                 data.avatar = $(this).attr('src').trim();
