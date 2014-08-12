@@ -45,7 +45,7 @@ module.exports = {
             function (callback) {
               keyword = [];
               $('div.display-post-status-leftside div.display-post-tag-wrapper a.tag-item').filter(function (index, elem) {
-                keyword.push($(this).html());
+                keyword.push($(this).text());
                 if (index === $('div.display-post-status-leftside div.display-post-tag-wrapper a.tag-item').length - 1) {
                   data.keyword = keyword;
                   callback(null, data);
