@@ -20,23 +20,29 @@ module.exports = {
             // Get title
             function (callback) {
               $('h2.display-post-title').first().filter(function () {
-                data.title = $(this).text().trim();
+                if($(this).length > 0){
+                  data.title = $(this).text().trim();
+                }
                 callback(null, data);
               });
             },
             // Get description
             function (callback) {
               $('div.display-post-status-leftside div.display-post-story-wrapper div.display-post-story').first().filter(function () {
-                data.description = $(this).text().trim();
+                if($(this).length > 0){
+                  data.description = $(this).text().trim();
+                }
                 callback(null, data);
               });
             },
             // Get avatar
             function(callback){
               $('div.display-post-story-footer div.display-post-action div.display-post-avatar a img').first().filter(function(){
-                data.avatar = $(this).attr('src').trim();
-                if(data.avatar.match(/^\/(.*)/i)) {
-                  data.avatar = 'http://www.pantip.com'+data.avatar;
+                if($(this).length > 0){
+                  data.avatar = $(this).attr('src').trim();
+                  if(data.avatar.match(/^\/(.*)/i)) {
+                    data.avatar = 'http://www.pantip.com'+data.avatar;
+                  }
                 }
                 callback(null, data);
               });
@@ -45,11 +51,13 @@ module.exports = {
             function (callback) {
               keyword = [];
               $('div.display-post-status-leftside div.display-post-tag-wrapper a.tag-item').filter(function (index, elem) {
-                keyword.push($(this).text());
-                if (index === $('div.display-post-status-leftside div.display-post-tag-wrapper a.tag-item').length - 1) {
-                  data.keyword = keyword;
-                  callback(null, data);
+                if($(this).length > 0){
+                  keyword.push($(this).text());
+                  if (index === $('div.display-post-status-leftside div.display-post-tag-wrapper a.tag-item').length - 1) {
+                    data.keyword = keyword;
+                  }
                 }
+                callback(null, data);
               });
             },
             // Get comment
@@ -58,7 +66,7 @@ module.exports = {
               $('div.display-post-status-leftside div.display-post-story-wrapper.comment-wrapper div.display-post-story').filter(function (index, elem) {
                 if($(this).text().trim() !== ''){
                   var avatar = $(this).parents('div.display-post-status-leftside').find('div.display-post-story-footer a.avatarlink img').attr('src');
-                  if(avatar.match(/^\/(.*)/i)) {
+                  if(avatar.length > 0 && avatar.match(/^\/(.*)/i)) {
                     avatar = 'http://www.pantip.com'+avatar;
                   }
                   comment.push({comment: $(this).text().trim(), avatar: avatar});

@@ -1,6 +1,6 @@
 {
   "name": "pantip-spider",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Pantip",
   "main": "src/index.js",
   "author": "bluezip",
